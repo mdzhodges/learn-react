@@ -1,3 +1,5 @@
+import { people } from "@/pages/qcomps/list_keys_id";
+
 export const recipes = [{
   id: 'greek-salad',
   name: 'Greek Salad',
@@ -13,10 +15,17 @@ export const recipes = [{
 }];
 
 export default function RecipeList() {
+  const listItems = recipes.map(recipe =>
+      <div key={recipe.id}>
+        <h2>{recipe.name}</h2>
+        <ul>{Array.from(recipe.ingredients).join(' ')}</ul>
+      </div>
+  );
+
   return (
-    <div>
-      <h1>Recipes</h1>
-      {}
-    </div>
+      <div>
+        <h1>Recipes</h1>
+        <ul>{listItems}</ul>
+      </div>
   );
 }
