@@ -25,7 +25,7 @@ function Profile(scientist: ScientistProp) {
           </li>
           <li>
             <b>Awards: </b>
-            {scientist.awards.length} ({scientist.awards.join(", ")})
+            ({scientist.awards.length}) {scientist.awards.join(", ")})
           </li>
           <li>
             <b>Discovered: </b>
