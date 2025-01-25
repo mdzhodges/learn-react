@@ -1,4 +1,4 @@
-interface Scientist {
+type ScientistProp = {
   name: string;
   imageUrl: string;
   imageAlt: string;
@@ -7,7 +7,7 @@ interface Scientist {
   discoveries: string
 }
 
-function Profile(scientist: Scientist) {
+function Profile(scientist: ScientistProp) {
   return (
       <section className="profile">
         <h2>{scientist.name}</h2>
