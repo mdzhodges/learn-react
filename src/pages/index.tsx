@@ -7,12 +7,12 @@ import List from './qcomps/list_keys_id'
 import WhyState from './components/whyState'
 import Form from './qcomps/updObjectsForm'
 import Remove from './qcomps/artistsRemoveArr'
-
+import ArrayObj from './qcomps/arrObj'
 
 
 
 export default function Home() {
   return (
-      <Remove/>
+      <ArrayObj/>
   )
 }
