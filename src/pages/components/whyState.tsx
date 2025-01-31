@@ -24,7 +24,7 @@ export default function Gallery() {
         by {sculpture.artist}
       </h2>
       <h3>
-        ({index + 1} of {sculptureList.length})
+        ({2*index} of {sculptureList.length})
       </h3>
       <img
         src={sculpture.url}

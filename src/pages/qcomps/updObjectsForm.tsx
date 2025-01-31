@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import {Simulate} from "react-dom/test-utils";
+import play = Simulate.play;
 
 /**
  * The component has a bug that 
@@ -12,8 +14,12 @@ export default function Scoreboard() {
     likescore: 10,
   });
 
+  function handleReset(){
+    setPlayer({firstName: "", lastName: "", likescore: 0})
+  }
+
   function handlePlusClick() {
-    player.likescore++;
+    setPlayer({...player, likescore: player.likescore + 1});
   }
 
   function handleFirstNameChange(e: { target: { value: string; }; }) {
@@ -24,32 +30,47 @@ export default function Scoreboard() {
   }
 
   function handleLastNameChange(e: { target: { value: string; }; }) {
-    player.lastName = e.target.value;
+    setPlayer({
+      ...player,
+      lastName: e.target.value,
+    });
   }
 
   return (
-    <>
-      <label>
-        Like Score: <b>{player.likescore}</b>
-        {'  '}
-        <button onClick={handlePlusClick}>
-          +1
-        </button>
-      </label>
-      <label>
-        First name:
-        <input
-          value={player.firstName}
-          onChange={handleFirstNameChange}
-        />
-      </label>
-      <label>
-        Last name:
-        <input
-          value={player.lastName}
-          onChange={handleLastNameChange}
-        />
-      </label>
-    </>
+      <>
+        <label>
+          Like Score: <b>{player.likescore}</b>
+          {'  '}
+          <button onClick={handlePlusClick}>
+            +1
+          </button>
+        </label>
+        <label>
+          First name:
+          <input
+              value={player.firstName}
+              onChange={handleFirstNameChange}
+          />
+        </label>
+        <label>
+          Last name:
+          <input
+              value={player.lastName}
+              onChange={handleLastNameChange}
+          />
+        </label>
+
+        <label>
+          {'  '}
+          <button onClick={handleReset}>
+              Reset
+          </button>
+        </label>
+
+        <p>
+          Score: {player.likescore} <br/>
+          {player.firstName} {player.lastName}
+        </p>
+      </>
   );
 }
